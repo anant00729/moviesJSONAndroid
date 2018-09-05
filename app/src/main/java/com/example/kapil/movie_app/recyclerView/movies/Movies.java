@@ -4,20 +4,49 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.ImageView;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Movies implements Parcelable {
-    public String Image;
+
+
+    @SerializedName("_id")
+    public String _id;
+
+    @SerializedName("title")
     public String Title;
-    public Integer Year;
-    public String Genre;
+
+    @SerializedName("director")
     public String Director;
+
+    @SerializedName("genre")
+    public String Genre;
+
+    @SerializedName("rating")
     public Double Rating;
-    public String Certification;
-    public String Time;
+
+    @SerializedName("summary")
     public String Summary;
-    public Integer Reviews;
+
+    @SerializedName("certification")
+    public String Certification;
+
+    @SerializedName("year")
+    public Integer Year;
+
+    @SerializedName("bannerImage")
     public String Banner;
 
-    public Movies(String banner, String image, String title, Integer year, String genre, String director, Double rating, String certification, String time, String summary, Integer reviews) {
+    @SerializedName("thumbnailImage")
+    public String Image;
+
+    @SerializedName("duration")
+    public String Time;
+
+
+
+
+
+    public Movies(String banner, String image, String title, Integer year, String genre, String director, Double rating, String certification, String time, String summary) {
         Banner = banner;
         Image = image;
         Title = title;
@@ -28,7 +57,7 @@ public class Movies implements Parcelable {
         Certification = certification;
         Time = time;
         Summary = summary;
-        Reviews = reviews;
+        //Reviews = ;
 
     }
 
@@ -50,7 +79,7 @@ public class Movies implements Parcelable {
         dest.writeString(this.Certification);
         dest.writeString(this.Time);
         dest.writeString(this.Summary);
-        dest.writeValue(this.Reviews);
+
     }
 
     protected Movies(Parcel in) {
@@ -64,7 +93,7 @@ public class Movies implements Parcelable {
         this.Certification = in.readString();
         this.Time = in.readString();
         this.Summary = in.readString();
-        this.Reviews = (Integer) in.readValue(Integer.class.getClassLoader());
+
     }
 
     public static final Parcelable.Creator<Movies> CREATOR = new Parcelable.Creator<Movies>() {

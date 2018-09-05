@@ -66,7 +66,7 @@ public class Detailed_Page extends AppCompatActivity {
 
 
 
-        tv_reviews.setText("Based on "+ f.format(m.Reviews) +" reviews");
+        //tv_reviews.setText("Based on "+ f.format(m.Reviews) +" reviews");
 
         tv_genre.setText(m.Genre);
 
